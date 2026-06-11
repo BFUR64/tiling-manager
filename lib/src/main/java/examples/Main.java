@@ -5,8 +5,6 @@ import com.teic.tiling.v2.Engine;
 import com.teic.tiling.v2.Render;
 import com.teic.tiling.v2.layouts.AbsoluteLayout;
 import com.teic.tiling.v2.text.StaticText;
-import com.teic.tiling.v2.utils.Position;
-import com.teic.tiling.v2.utils.Size;
 import io.github.bfur64.terminal.BufferedTerminal;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
 import org.jspecify.annotations.NullMarked;
@@ -37,7 +35,7 @@ public class Main {
         firstTextBox.putString(0, 0, "Hello World!");
         firstTextBox.putString(0, 1, "I am Terrance!");
 
-        Container root = new Container(List.of(
+        Container root = new Container(new AbsoluteLayout(), List.of(
             firstTextBox
         ));
 
