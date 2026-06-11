@@ -1,5 +1,6 @@
 package com.teic.tiling.v2.layouts;
 
+import com.teic.tiling.v2.interfaces.hasChildren;
 import com.teic.tiling.v2.utils.Geometry;
 import com.teic.tiling.v2.utils.Node;
 import org.jspecify.annotations.NullMarked;
@@ -21,8 +22,10 @@ public class AbsoluteLayout implements Layout {
     private void walk(Node node, Map<Node, Geometry> finalLayout) {
         finalLayout.put(node, new Geometry(node.getDesiredPosition(), node.getDesiredSize()));
 
-        for (Node child : node.getChildren()) {
-            walk(child, finalLayout);
+        if (node instanceof hasChildren container) {
+            for (Node child : container.getChildren()) {
+                walk(child, finalLayout);
+            }
         }
     }
 }
