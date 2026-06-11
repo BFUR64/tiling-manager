@@ -11,21 +11,15 @@ import java.util.Map;
 @NullMarked
 public class AbsoluteLayout implements Layout {
     @Override
-    public LayoutResult apply(Node node) {
-        Map<Node, Geometry> finalLayout = new HashMap<>();
+    public Map<Node, Geometry> apply(Node node) {
+        Map<Node, Geometry> local = new HashMap<>();
 
-        walk(node, finalLayout);
-
-        return new LayoutResult(finalLayout);
-    }
-
-    private void walk(Node node, Map<Node, Geometry> finalLayout) {
-        finalLayout.put(node, new Geometry(node.getDesiredPosition(), node.getDesiredSize()));
-
-        if (node instanceof hasChildren container) {
-            for (Node child : container.getChildren()) {
-                walk(child, finalLayout);
+        if (node instanceof hasChildren parent) {
+            for (Node child : parent.getChildren()) {
+                local.put(child, new Geometry(child.getDesiredPosition(), child.getDesiredSize()));
             }
         }
+
+        return local;
     }
 }
