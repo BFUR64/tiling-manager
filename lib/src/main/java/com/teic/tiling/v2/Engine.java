@@ -1,22 +1,21 @@
 package com.teic.tiling.v2;
 
-import com.teic.tiling.v2.layouts.Layout;
 import com.teic.tiling.v2.layouts.LayoutResult;
 import com.teic.tiling.v2.utils.Node;
 import org.jspecify.annotations.NullMarked;
+import org.jspecify.annotations.Nullable;
 
 @NullMarked
 public class Engine {
     private final Render render;
-    private final Layout layout;
     private final Node root;
-    private LayoutResult layoutResult;
+    private final LayoutManager layoutManager;
+    private @Nullable LayoutResult layoutResult;
 
-    public Engine(Render render, Layout layout, Node root) {
+    public Engine(Render render, Node root) {
         this.render = render;
-        this.layout = layout;
         this.root = root;
-        this.layoutResult = layout.apply(root);
+        this.layoutManager = new LayoutManager();
     }
 
     public void start() {
@@ -30,10 +29,11 @@ public class Engine {
     }
 
     private void layout() {
-        layoutResult = layout.apply(root);
+        layoutResult = layoutManager.apply(root);
     }
 
     private void render() {
+        assert layoutResult != null;
         render.render(layoutResult);
     }
 }
