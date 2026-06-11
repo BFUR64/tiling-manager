@@ -1,7 +1,7 @@
 package examples;
 
 import com.teic.tiling.v2.Container;
-import com.teic.tiling.v2.Engine;
+import com.teic.tiling.v2.TilingManager;
 import com.teic.tiling.v2.Render;
 import com.teic.tiling.v2.layouts.AbsoluteLayout;
 import com.teic.tiling.v2.text.StaticText;
@@ -40,7 +40,7 @@ public class Main {
         ));
 
         Render render = new Render(terminal);
-        Engine engine = new Engine(render, root);
+        TilingManager engine = new TilingManager(render, root);
         engine.start();
         terminal.readInput();
     }

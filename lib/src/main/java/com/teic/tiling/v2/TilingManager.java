@@ -5,12 +5,12 @@ import com.teic.tiling.v2.utils.Node;
 import org.jspecify.annotations.NullMarked;
 
 @NullMarked
-public class Engine {
+public class TilingManager {
     private final Render render;
     private final Node root;
     private final LayoutManager layoutManager;
 
-    public Engine(Render render, Node root) {
+    public TilingManager(Render render, Node root) {
         this.render = render;
         this.root = root;
         this.layoutManager = new LayoutManager();
