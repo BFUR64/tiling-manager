@@ -40,7 +40,7 @@ public class Main {
         ));
 
         Render render = new Render(terminal);
-        Engine engine = new Engine(render, new AbsoluteLayout(), root);
+        Engine engine = new Engine(render, root);
         engine.start();
         terminal.readInput();
     }
