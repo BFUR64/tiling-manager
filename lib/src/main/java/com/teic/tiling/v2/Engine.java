@@ -20,12 +20,9 @@ public class Engine {
     }
 
     public void start() {
-        // TODO Replace with while loop
-        for (int i = 0; i < 5; i++) {
-            update();
-            layout();
-            render();
-        }
+        update();
+        layout();
+        render();
     }
 
     private void update() {
