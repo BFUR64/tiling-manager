@@ -2,8 +2,6 @@ package com.teic.tiling.v2.utils;
 
 import org.jspecify.annotations.NullMarked;
 
-import java.util.List;
-
 @NullMarked
 public abstract class Node {
     protected Position desiredPosition;
@@ -15,10 +13,6 @@ public abstract class Node {
     }
 
     public void update() {}
-
-    public List<Node> getChildren() {
-        return List.of();
-    }
 
     public Position getDesiredPosition()  {
         return desiredPosition;
