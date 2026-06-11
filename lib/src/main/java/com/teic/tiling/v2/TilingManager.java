@@ -16,7 +16,7 @@ public class TilingManager {
         this.layoutManager = new LayoutManager();
     }
 
-    public void start() {
+    public void tick() {
         update();
         LayoutResult result = layout();
         render(result);

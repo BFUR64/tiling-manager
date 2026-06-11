@@ -41,7 +41,7 @@ public class Main {
 
         Render render = new Render(terminal);
         TilingManager engine = new TilingManager(render, root);
-        engine.start();
+        engine.tick();
         terminal.readInput();
     }
 }
