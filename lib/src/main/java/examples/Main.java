@@ -2,7 +2,7 @@ package examples;
 
 import com.teic.tiling.v2.Container;
 import com.teic.tiling.v2.TilingManager;
-import com.teic.tiling.v2.Render;
+import com.teic.tiling.v2.TilingRenderer;
 import com.teic.tiling.v2.layouts.AbsoluteLayout;
 import com.teic.tiling.v2.text.StaticText;
 import io.github.bfur64.terminal.BufferedTerminal;
@@ -35,13 +35,12 @@ public class Main {
         firstTextBox.putString(0, 0, "Hello World!");
         firstTextBox.putString(0, 1, "I am Terrance!");
 
-        Container root = new Container(new AbsoluteLayout(), List.of(
+        Container root = new Container(AbsoluteLayout::apply, List.of(
             firstTextBox
         ));
 
-        Render render = new Render(terminal);
-        TilingManager engine = new TilingManager(render, root);
-        engine.tick();
+        TilingManager tilingManager = new TilingManager(new TilingRenderer(terminal), root);
+        tilingManager.tick();
         terminal.readInput();
     }
 }

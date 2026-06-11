@@ -9,9 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 @NullMarked
-public class AbsoluteLayout implements Layout {
-    @Override
-    public Map<Node, Geometry> apply(Node node) {
+public class AbsoluteLayout {
+    public static Map<Node, Geometry> apply(Node node) {
         Map<Node, Geometry> local = new HashMap<>();
 
         if (node instanceof hasChildren parent) {
