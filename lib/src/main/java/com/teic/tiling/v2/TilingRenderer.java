@@ -11,10 +11,10 @@ import org.jspecify.annotations.NullMarked;
 import java.util.Map;
 
 @NullMarked
-public class Render {
+public class TilingRenderer {
     private final TerminalBackend terminal;
 
-    public Render(TerminalBackend terminal) {
+    public TilingRenderer(TerminalBackend terminal) {
         this.terminal = terminal;
     }
 

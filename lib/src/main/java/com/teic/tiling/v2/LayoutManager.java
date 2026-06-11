@@ -12,7 +12,7 @@ import java.util.Map;
 
 @NullMarked
 public class LayoutManager {
-    public LayoutResult apply(Node node) {
+    public static LayoutResult apply(Node node) {
         Map<Node, Geometry> result = new HashMap<>();
 
         walk(node, result);
@@ -20,7 +20,7 @@ public class LayoutManager {
         return new LayoutResult(result);
     }
 
-    private void walk(Node node, Map<Node, Geometry> result) {
+    private static void walk(Node node, Map<Node, Geometry> result) {
         if (node instanceof hasLayout layout) {
             result.putAll(layout.getLayout().apply(node));
         }

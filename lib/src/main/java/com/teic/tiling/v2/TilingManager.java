@@ -6,14 +6,12 @@ import org.jspecify.annotations.NullMarked;
 
 @NullMarked
 public class TilingManager {
-    private final Render render;
+    private final TilingRenderer render;
     private final Node root;
-    private final LayoutManager layoutManager;
 
-    public TilingManager(Render render, Node root) {
+    public TilingManager(TilingRenderer render, Node root) {
         this.render = render;
         this.root = root;
-        this.layoutManager = new LayoutManager();
     }
 
     public void tick() {
@@ -27,7 +25,7 @@ public class TilingManager {
     }
 
     private LayoutResult layout() {
-        return layoutManager.apply(root);
+        return LayoutManager.apply(root);
     }
 
     private void render(LayoutResult result) {
