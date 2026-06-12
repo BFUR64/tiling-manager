@@ -3,6 +3,7 @@ package examples;
 import com.teic.tiling.v2.ContainerNode;
 import com.teic.tiling.v2.Viewport;
 import com.teic.tiling.v2.layouts.AbsoluteLayout;
+import com.teic.tiling.v2.layouts.RowLayout;
 import com.teic.tiling.v2.text.TextNode;
 import io.github.bfur64.terminal.BufferedTerminal;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
@@ -34,8 +35,13 @@ public class Main {
         firstTextBox.put(0, 0, "Hello World!");
         firstTextBox.put(0, 1, "I am Terrance!");
 
-        ContainerNode root = new ContainerNode(AbsoluteLayout::apply, List.of(
-            firstTextBox
+        TextNode secondTextBox = new TextNode();
+        secondTextBox.put(0, 0, "LMAO");
+        secondTextBox.put(0, 1, "Beard");
+
+        ContainerNode root = new ContainerNode(RowLayout::apply, List.of(
+            firstTextBox,
+            secondTextBox
         ));
 
         Viewport viewport = new Viewport(terminal, root);
