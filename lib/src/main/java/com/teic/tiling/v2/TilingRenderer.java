@@ -1,5 +1,6 @@
 package com.teic.tiling.v2;
 
+import com.teic.tiling.v2.interfaces.Renderable;
 import com.teic.tiling.v2.layouts.LayoutResult;
 import com.teic.tiling.v2.text.TextEntry;
 import com.teic.tiling.v2.text.TextNode;
@@ -26,15 +27,9 @@ public class TilingRenderer {
         terminal.flush();
     }
 
-    private void draw (Node node, Geometry geometry) {
-        if (node instanceof TextNode staticText) {
-            for (TextEntry e : staticText.getEntries()) {
-                terminal.put(
-                    geometry.position().x() + e.position().x(),
-                    geometry.position().y() + e.position().y(),
-                    String.valueOf(e.supplier().get())
-                );
-            }
+    private void draw(Node node, Geometry geometry) {
+        if (node instanceof Renderable renderableNode) {
+            renderableNode.render(terminal, geometry);
         }
     }
 }
