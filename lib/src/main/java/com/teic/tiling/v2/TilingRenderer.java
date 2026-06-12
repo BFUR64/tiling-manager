@@ -2,8 +2,6 @@ package com.teic.tiling.v2;
 
 import com.teic.tiling.v2.interfaces.Renderable;
 import com.teic.tiling.v2.layouts.LayoutResult;
-import com.teic.tiling.v2.text.TextEntry;
-import com.teic.tiling.v2.text.TextNode;
 import com.teic.tiling.v2.utils.Geometry;
 import com.teic.tiling.v2.utils.Node;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
