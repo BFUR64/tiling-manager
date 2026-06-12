@@ -15,7 +15,7 @@ public class AbsoluteLayout {
 
         if (node instanceof Container parent) {
             for (Node child : parent.getChildren()) {
-                local.put(child, new Geometry(child.getDesiredPosition(), child.getDesiredSize()));
+                local.put(child, Geometry.of(child.getDesiredPosition(), child.getDesiredSize()));
             }
         }
 
