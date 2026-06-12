@@ -2,7 +2,6 @@ package examples;
 
 import com.teic.tiling.v2.ContainerNode;
 import com.teic.tiling.v2.TilingManager;
-import com.teic.tiling.v2.TilingRenderer;
 import com.teic.tiling.v2.layouts.AbsoluteLayout;
 import com.teic.tiling.v2.text.TextNode;
 import io.github.bfur64.terminal.BufferedTerminal;
@@ -39,7 +38,8 @@ public class Main {
             firstTextBox
         ));
 
-        TilingManager tilingManager = new TilingManager(new TilingRenderer(terminal), root);
+        TilingManager tilingManager = new TilingManager(terminal, root);
+        tilingManager.setAutoResize(true);
         tilingManager.tick();
         terminal.readInput();
     }

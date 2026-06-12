@@ -4,8 +4,6 @@ import com.teic.tiling.v2.interfaces.Container;
 import com.teic.tiling.v2.layouts.LayoutResult;
 import com.teic.tiling.v2.utils.Geometry;
 import com.teic.tiling.v2.utils.Node;
-import com.teic.tiling.v2.utils.Position;
-import com.teic.tiling.v2.utils.Size;
 import org.jspecify.annotations.NullMarked;
 
 import java.util.HashMap;
@@ -13,10 +11,10 @@ import java.util.Map;
 
 @NullMarked
 public class LayoutManager {
-    public static LayoutResult apply(Node node, Position offset, Size size) {
+    public static LayoutResult apply(Node node, Geometry parentGeometry) {
         Map<Node, Geometry> result = new HashMap<>();
 
-        walk(node, result, Geometry.of(offset, size));
+        walk(node, result, parentGeometry);
 
         return new LayoutResult(result);
     }
