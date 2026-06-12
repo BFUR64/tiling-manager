@@ -9,7 +9,7 @@ import io.github.bfur64.terminal.interfaces.TerminalBackend;
 import org.jspecify.annotations.NullMarked;
 
 @NullMarked
-public class TilingManager {
+public class Viewport {
     private final TerminalBackend terminal;
     private final TilingRenderer render;
     private final Node root;
@@ -19,7 +19,7 @@ public class TilingManager {
 
     private boolean autoResize;
 
-    public TilingManager(TerminalBackend terminal, Node root) {
+    public Viewport(TerminalBackend terminal, Node root) {
         this.terminal = terminal;
         this.render = new TilingRenderer(terminal);
         this.root = root;

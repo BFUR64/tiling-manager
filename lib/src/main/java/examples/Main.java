@@ -1,7 +1,7 @@
 package examples;
 
 import com.teic.tiling.v2.ContainerNode;
-import com.teic.tiling.v2.TilingManager;
+import com.teic.tiling.v2.Viewport;
 import com.teic.tiling.v2.layouts.AbsoluteLayout;
 import com.teic.tiling.v2.text.TextNode;
 import io.github.bfur64.terminal.BufferedTerminal;
@@ -38,9 +38,9 @@ public class Main {
             firstTextBox
         ));
 
-        TilingManager tilingManager = new TilingManager(terminal, root);
-        tilingManager.setAutoResize(true);
-        tilingManager.tick();
+        Viewport viewport = new Viewport(terminal, root);
+        viewport.setAutoResize(true);
+        viewport.tick();
         terminal.readInput();
     }
 }
