@@ -1,6 +1,7 @@
 package com.teic.tiling.v2.text;
 
 import com.teic.tiling.v2.interfaces.Renderable;
+import com.teic.tiling.v2.utils.Geometry;
 import com.teic.tiling.v2.utils.Node;
 import com.teic.tiling.v2.utils.Position;
 import com.teic.tiling.v2.utils.Size;
@@ -45,12 +46,25 @@ public class TextNode extends Node implements Renderable {
     }
 
     @Override
-    public void render(TerminalBackend terminal, Position offset) {
+    public void render(TerminalBackend terminal, Geometry finalGeometry) {
+        Position offset = finalGeometry.position();
+        Size constraint = finalGeometry.size();
+
         for (TextEntry textEntry : entries) {
+            String out = String.valueOf(textEntry.supplier().get());
+
+            // Y Clamp
+            if (textEntry.position().y() > constraint.y()) continue;
+
+            // X Clamp
+            int clamped = Math.max(0, constraint.x() - textEntry.position().x());
+            int end = Math.min(out.length(), clamped);
+            out = out.substring(0, end);
+
             terminal.put(
-                desiredSize.x() + offset.x(),
-                desiredSize.y() + offset.y(),
-                String.valueOf(textEntry.supplier().get())
+                offset.x() + textEntry.position().x(),
+                offset.y() + textEntry.position().y(),
+                out
             );
         }
     }
