@@ -9,5 +9,5 @@ import java.util.Map;
 @NullMarked
 @FunctionalInterface
 public interface Layout {
-    Map<Node, Geometry> apply (Node node);
+    Map<Node, Geometry> apply (Node node, Geometry parentGeometry);
 }

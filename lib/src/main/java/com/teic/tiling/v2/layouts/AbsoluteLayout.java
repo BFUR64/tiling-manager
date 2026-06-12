@@ -10,7 +10,7 @@ import java.util.Map;
 
 @NullMarked
 public class AbsoluteLayout {
-    public static Map<Node, Geometry> apply(Node node) {
+    public static Map<Node, Geometry> apply(Node node, Geometry parentGeometry) {
         Map<Node, Geometry> local = new HashMap<>();
 
         if (node instanceof Container parent) {
