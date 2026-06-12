@@ -1,14 +1,18 @@
 package com.teic.tiling.v2.text;
 
+import com.teic.tiling.v2.interfaces.Renderable;
 import com.teic.tiling.v2.utils.Node;
 import com.teic.tiling.v2.utils.Position;
 import com.teic.tiling.v2.utils.Size;
+import io.github.bfur64.terminal.interfaces.TerminalBackend;
+import org.jspecify.annotations.NullMarked;
 
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Supplier;
 
-public class TextNode extends Node {
+@NullMarked
+public class TextNode extends Node implements Renderable {
     private final Set<TextEntry> entries = new HashSet<>();
 
     public TextNode() {
@@ -27,10 +31,6 @@ public class TextNode extends Node {
         entries.add(TextEntry.of(x, y, supplier));
     }
 
-    public Set<TextEntry> getEntries() {
-        return entries;
-    }
-
     @Override
     public void update() {
         int maxX = 0, maxY = 0;
@@ -42,5 +42,16 @@ public class TextNode extends Node {
         }
 
         desiredSize = Size.of(maxX, maxY);
+    }
+
+    @Override
+    public void render(TerminalBackend terminal, Position offset) {
+        for (TextEntry textEntry : entries) {
+            terminal.put(
+                desiredSize.x() + offset.x(),
+                desiredSize.y() + offset.y(),
+                String.valueOf(textEntry.supplier().get())
+            );
+        }
     }
 }
