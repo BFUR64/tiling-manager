@@ -1,7 +1,6 @@
 package com.teic.tiling.v2;
 
-import com.teic.tiling.v2.interfaces.hasChildren;
-import com.teic.tiling.v2.interfaces.hasLayout;
+import com.teic.tiling.v2.interfaces.Container;
 import com.teic.tiling.v2.layouts.LayoutResult;
 import com.teic.tiling.v2.utils.Geometry;
 import com.teic.tiling.v2.utils.Node;
@@ -21,12 +20,10 @@ public class LayoutManager {
     }
 
     private static void walk(Node node, Map<Node, Geometry> result) {
-        if (node instanceof hasLayout layout) {
-            result.putAll(layout.getLayout().apply(node));
-        }
+        if (node instanceof Container container) {
+            result.putAll(container.getLayout().apply(node));
 
-        if (node instanceof hasChildren parent) {
-            for (Node child : parent.getChildren()) {
+            for (Node child : container.getChildren()) {
                 walk(child, result);
             }
         }
