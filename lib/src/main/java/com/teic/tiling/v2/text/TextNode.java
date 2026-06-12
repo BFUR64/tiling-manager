@@ -11,6 +11,10 @@ import java.util.function.Supplier;
 public class TextNode extends Node {
     private final Set<TextEntry> entries = new HashSet<>();
 
+    public TextNode() {
+        this(Position.of(0, 0), Size.of(0, 0));
+    }
+
     public TextNode(Position desiredPosition, Size desiredSize) {
         super(desiredPosition, desiredSize);
     }
@@ -21,6 +25,10 @@ public class TextNode extends Node {
 
     public void put(int x, int y, Supplier<?> supplier) {
         entries.add(TextEntry.of(x, y, supplier));
+    }
+
+    public Set<TextEntry> getEntries() {
+        return entries;
     }
 
     @Override

@@ -1,8 +1,8 @@
 package com.teic.tiling.v2;
 
 import com.teic.tiling.v2.layouts.LayoutResult;
-import com.teic.tiling.v2.text.StaticEntry;
-import com.teic.tiling.v2.text.StaticText;
+import com.teic.tiling.v2.text.TextEntry;
+import com.teic.tiling.v2.text.TextNode;
 import com.teic.tiling.v2.utils.Geometry;
 import com.teic.tiling.v2.utils.Node;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
@@ -27,12 +27,12 @@ public class TilingRenderer {
     }
 
     private void draw (Node node, Geometry geometry) {
-        if (node instanceof StaticText staticText) {
-            for (StaticEntry e : staticText.getEntries()) {
+        if (node instanceof TextNode staticText) {
+            for (TextEntry e : staticText.getEntries()) {
                 terminal.put(
                     geometry.position().x() + e.position().x(),
                     geometry.position().y() + e.position().y(),
-                    e.out()
+                    String.valueOf(e.supplier().get())
                 );
             }
         }

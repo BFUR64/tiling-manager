@@ -4,7 +4,7 @@ import com.teic.tiling.v2.Container;
 import com.teic.tiling.v2.TilingManager;
 import com.teic.tiling.v2.TilingRenderer;
 import com.teic.tiling.v2.layouts.AbsoluteLayout;
-import com.teic.tiling.v2.text.StaticText;
+import com.teic.tiling.v2.text.TextNode;
 import io.github.bfur64.terminal.BufferedTerminal;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
 import org.jspecify.annotations.NullMarked;
@@ -31,9 +31,9 @@ public class Main {
     }
 
     private void start() {
-        StaticText firstTextBox = new StaticText();
-        firstTextBox.putString(0, 0, "Hello World!");
-        firstTextBox.putString(0, 1, "I am Terrance!");
+        TextNode firstTextBox = new TextNode();
+        firstTextBox.put(0, 0, "Hello World!");
+        firstTextBox.put(0, 1, "I am Terrance!");
 
         Container root = new Container(AbsoluteLayout::apply, List.of(
             firstTextBox
