@@ -1,6 +1,6 @@
 package com.teic.tiling.v2.layouts;
 
-import com.teic.tiling.v2.interfaces.hasChildren;
+import com.teic.tiling.v2.interfaces.Container;
 import com.teic.tiling.v2.utils.Geometry;
 import com.teic.tiling.v2.utils.Node;
 import org.jspecify.annotations.NullMarked;
@@ -13,7 +13,7 @@ public class AbsoluteLayout {
     public static Map<Node, Geometry> apply(Node node) {
         Map<Node, Geometry> local = new HashMap<>();
 
-        if (node instanceof hasChildren parent) {
+        if (node instanceof Container parent) {
             for (Node child : parent.getChildren()) {
                 local.put(child, new Geometry(child.getDesiredPosition(), child.getDesiredSize()));
             }

@@ -1,6 +1,6 @@
 package examples;
 
-import com.teic.tiling.v2.Container;
+import com.teic.tiling.v2.ContainerNode;
 import com.teic.tiling.v2.TilingManager;
 import com.teic.tiling.v2.TilingRenderer;
 import com.teic.tiling.v2.layouts.AbsoluteLayout;
@@ -35,7 +35,7 @@ public class Main {
         firstTextBox.put(0, 0, "Hello World!");
         firstTextBox.put(0, 1, "I am Terrance!");
 
-        Container root = new Container(AbsoluteLayout::apply, List.of(
+        ContainerNode root = new ContainerNode(AbsoluteLayout::apply, List.of(
             firstTextBox
         ));
 
