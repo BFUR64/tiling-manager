@@ -11,7 +11,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @NullMarked
-public class ColumnLayout implements Layout {
+public final class ColumnLayout implements Layout {
     public static final Layout INSTANCE = new ColumnLayout();
 
     private ColumnLayout() {}

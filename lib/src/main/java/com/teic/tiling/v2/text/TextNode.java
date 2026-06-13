@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.function.Supplier;
 
 @NullMarked
-public class TextNode extends Node implements Renderable {
+public final class TextNode extends Node implements Renderable {
     private final Set<TextEntry> entries = new HashSet<>();
 
     public TextNode() {

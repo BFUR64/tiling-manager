@@ -10,7 +10,7 @@ import org.jspecify.annotations.NullMarked;
 import java.util.List;
 
 @NullMarked
-public class ContainerNode extends Node implements Container {
+public final class ContainerNode extends Node implements Container {
     private final List<Node> nodes;
     private final Layout layout;
 

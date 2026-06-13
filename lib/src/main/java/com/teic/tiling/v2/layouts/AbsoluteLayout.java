@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @NullMarked
-public class AbsoluteLayout implements Layout {
+public final class AbsoluteLayout implements Layout {
     public static final Layout INSTANCE = new AbsoluteLayout();
 
     private AbsoluteLayout() {}

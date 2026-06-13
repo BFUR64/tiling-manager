@@ -10,7 +10,7 @@ import org.jspecify.annotations.NullMarked;
 import java.util.Map;
 
 @NullMarked
-public class TilingRenderer {
+public final class TilingRenderer {
     private final TerminalBackend terminal;
 
     public TilingRenderer(TerminalBackend terminal) {

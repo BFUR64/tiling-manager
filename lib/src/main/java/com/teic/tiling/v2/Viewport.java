@@ -8,7 +8,7 @@ import io.github.bfur64.terminal.interfaces.TerminalBackend;
 import org.jspecify.annotations.NullMarked;
 
 @NullMarked
-public class Viewport {
+public final class Viewport {
     private final TerminalBackend terminal;
     private final TilingRenderer render;
     private final ContainerNode root;

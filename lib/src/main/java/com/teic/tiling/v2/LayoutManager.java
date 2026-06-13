@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @NullMarked
-public class LayoutManager {
+public final class LayoutManager {
     public static LayoutResult apply(Container container, Geometry parentGeometry) {
         Map<Node, Geometry> result = new HashMap<>();
 
