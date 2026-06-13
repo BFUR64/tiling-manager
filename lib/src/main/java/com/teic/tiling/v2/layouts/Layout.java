@@ -11,5 +11,5 @@ import java.util.Map;
 @NullMarked
 public interface Layout {
     Size measure(Container container);
-    Map<Node, Geometry> apply (Node node, Geometry parentGeometry);
+    Map<Node, Geometry> layout(Node node, Geometry parentGeometry);
 }

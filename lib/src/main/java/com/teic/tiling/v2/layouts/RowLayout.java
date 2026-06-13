@@ -31,7 +31,7 @@ public final class RowLayout implements Layout {
         return Size.of(x, y);
     }
 
-    public Map<Node, Geometry> apply(Node node, Geometry parentGeometry) {
+    public Map<Node, Geometry> layout(Node node, Geometry parentGeometry) {
         Map<Node, Geometry> local = new HashMap<>();
 
         Position offset = parentGeometry.position();

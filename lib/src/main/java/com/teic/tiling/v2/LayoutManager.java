@@ -21,7 +21,7 @@ public class LayoutManager {
 
     private static void walk(Node node, Map<Node, Geometry> result, Geometry parentGeometry) {
         if (node instanceof Container container) {
-            Map<Node, Geometry> childGeometry = container.getLayout().apply(node, parentGeometry);
+            Map<Node, Geometry> childGeometry = container.getLayout().layout(node, parentGeometry);
             result.putAll(childGeometry);
 
             for (Node child : container.getChildren()) {
