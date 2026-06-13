@@ -14,6 +14,8 @@ public abstract class Node {
 
     public void update() {}
 
+    public void measure() {}
+
     public Position getDesiredPosition()  {
         return desiredPosition;
     }
