@@ -12,7 +12,7 @@ import java.util.Map;
 
 @NullMarked
 public final class RowLayout implements Layout {
-    public static final RowLayout INSTANCE = new RowLayout();
+    public static final Layout INSTANCE = new RowLayout();
 
     private RowLayout() {}
 
