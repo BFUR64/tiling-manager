@@ -2,7 +2,6 @@ package com.teic.tiling.v2;
 
 import com.teic.tiling.v2.layouts.LayoutResult;
 import com.teic.tiling.v2.utils.Geometry;
-import com.teic.tiling.v2.utils.Node;
 import com.teic.tiling.v2.utils.Position;
 import com.teic.tiling.v2.utils.Size;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
@@ -12,14 +11,14 @@ import org.jspecify.annotations.NullMarked;
 public class Viewport {
     private final TerminalBackend terminal;
     private final TilingRenderer render;
-    private final Node root;
+    private final ContainerNode root;
 
     private Position offset;
     private Size size;
 
     private boolean autoResize;
 
-    public Viewport(TerminalBackend terminal, Node root) {
+    public Viewport(TerminalBackend terminal, ContainerNode root) {
         this.terminal = terminal;
         this.render = new TilingRenderer(terminal);
         this.root = root;
