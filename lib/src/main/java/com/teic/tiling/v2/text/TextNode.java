@@ -29,11 +29,11 @@ public class TextNode extends Node implements Renderable {
     }
 
     public void put(int x, int y, Supplier<?> supplier) {
-        entries.add(TextEntry.of(x, y, supplier));
+        entries.add(TextEntry.of(Position.of(x, y), supplier));
     }
 
     @Override
-    public void update() {
+    public void measure() {
         int maxX = 0, maxY = 0;
 
         for (TextEntry entry : entries) {
