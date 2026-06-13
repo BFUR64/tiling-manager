@@ -27,7 +27,7 @@ public class AbsoluteLayout implements Layout {
             y = Math.max(y, size.y());
         }
 
-        return Size.of(0, 0);
+        return Size.of(x, y);
     }
 
     @Override
