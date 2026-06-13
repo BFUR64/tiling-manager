@@ -11,21 +11,21 @@ import java.util.Map;
 
 @NullMarked
 public class LayoutManager {
-    public static LayoutResult apply(Node node, Geometry parentGeometry) {
+    public static LayoutResult apply(Container container, Geometry parentGeometry) {
         Map<Node, Geometry> result = new HashMap<>();
 
-        walk(node, result, parentGeometry);
+        walk(container, result, parentGeometry);
 
         return new LayoutResult(result);
     }
 
-    private static void walk(Node node, Map<Node, Geometry> result, Geometry parentGeometry) {
-        if (node instanceof Container container) {
-            Map<Node, Geometry> childGeometry = container.getLayout().layout(container, parentGeometry);
-            result.putAll(childGeometry);
+    private static void walk(Container container, Map<Node, Geometry> result, Geometry parentGeometry) {
+        Map<Node, Geometry> childGeometry = container.getLayout().layout(container, parentGeometry);
+        result.putAll(childGeometry);
 
-            for (Node child : container.getChildren()) {
-                walk(child, result, childGeometry.get(child));
+        for (Node child : container.getChildren()) {
+            if (child instanceof Container childContainer) {
+                walk(childContainer, result, childGeometry.get(child));
             }
         }
     }
