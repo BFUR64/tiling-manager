@@ -30,6 +30,7 @@ public class Viewport {
 
     public void tick() {
         update();
+        measure();
         LayoutResult result = layout();
         render(result);
     }
@@ -52,6 +53,10 @@ public class Viewport {
 
     private void update() {
         root.update();
+    }
+
+    private void measure() {
+        root.measure();
     }
 
     private LayoutResult layout() {
