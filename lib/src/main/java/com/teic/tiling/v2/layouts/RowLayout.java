@@ -31,24 +31,23 @@ public final class RowLayout implements Layout {
         return Size.of(x, y);
     }
 
-    public Map<Node, Geometry> layout(Node node, Geometry parentGeometry) {
+    @Override
+    public Map<Node, Geometry> layout(Container parent, Geometry geometry) {
         Map<Node, Geometry> local = new HashMap<>();
 
-        Position offset = parentGeometry.position();
+        Position offset = geometry.position();
 
         int x = offset.x();
         int y = offset.y();
 
-        if (node instanceof Container parent) {
-            for (Node child : parent.getChildren()) {
-                Size size = child.getDesiredSize();
+        for (Node child : parent.getChildren()) {
+            Size size = child.getDesiredSize();
 
-                Position finalPosition = Position.of(x, y);
+            Position finalPosition = Position.of(x, y);
 
-                local.put(child, Geometry.of(finalPosition, size));
+            local.put(child, Geometry.of(finalPosition, size));
 
-                y += size.y();
-            }
+            y += size.y();
         }
 
         return local;
