@@ -11,8 +11,27 @@ import java.util.HashMap;
 import java.util.Map;
 
 @NullMarked
-public class RowLayout {
-    public static Map<Node, Geometry> apply(Node node, Geometry parentGeometry) {
+public final class RowLayout implements Layout {
+    public static final RowLayout INSTANCE = new RowLayout();
+
+    private RowLayout() {}
+
+    @Override
+    public Size measure(Container container) {
+        int x = 0;
+        int y = 0;
+
+        for (Node child : container.getChildren()) {
+            Size size = child.getDesiredSize();
+
+            x = Math.max(x, size.x());
+            y += size.y();
+        }
+
+        return Size.of(x, y);
+    }
+
+    public Map<Node, Geometry> apply(Node node, Geometry parentGeometry) {
         Map<Node, Geometry> local = new HashMap<>();
 
         Position offset = parentGeometry.position();
