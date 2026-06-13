@@ -11,25 +11,43 @@ import java.util.HashMap;
 import java.util.Map;
 
 @NullMarked
-public class ColumnLayout {
-    public static Map<Node, Geometry> apply(Node node, Geometry parentGeometry) {
+public class ColumnLayout implements Layout {
+    public static final Layout INSTANCE = new ColumnLayout();
+
+    private ColumnLayout() {}
+
+    @Override
+    public Size measure(Container container) {
+        int x = 0;
+        int y = 0;
+
+        for (Node child : container.getChildren()) {
+            Size size = child.getDesiredSize();
+
+            x += size.x();
+            y = Math.max(y, size.y());
+        }
+
+        return Size.of(x, y);
+    }
+
+    @Override
+    public Map<Node, Geometry> layout(Container parent, Geometry geometry) {
         Map<Node, Geometry> local = new HashMap<>();
 
-        Position offset = parentGeometry.position();
+        Position offset = geometry.position();
 
         int x = offset.x();
         int y = offset.y();
 
-        if (node instanceof Container parent) {
-            for (Node child : parent.getChildren()) {
-                Size size = child.getDesiredSize();
+        for (Node child : parent.getChildren()) {
+            Size size = child.getDesiredSize();
 
-                Position finalPosition = Position.of(x, y);
+            Position finalPosition = Position.of(x, y);
 
-                local.put(child, Geometry.of(finalPosition, size));
+            local.put(child, Geometry.of(finalPosition, size));
 
-                x += size.x();
-            }
+            x += size.x();
         }
 
         return local;
