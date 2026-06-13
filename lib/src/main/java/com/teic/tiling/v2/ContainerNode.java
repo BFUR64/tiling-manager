@@ -32,6 +32,15 @@ public class ContainerNode extends Node implements Container {
     }
 
     @Override
+    public void measure() {
+        for (Node node : nodes) {
+            node.measure();
+        }
+
+        desiredSize = layout.measure(this);
+    }
+
+    @Override
     public List<Node> getChildren() {
         return nodes;
     }
