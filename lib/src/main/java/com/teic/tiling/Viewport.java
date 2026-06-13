@@ -1,9 +1,9 @@
-package com.teic.tiling.v2;
+package com.teic.tiling;
 
-import com.teic.tiling.v2.layouts.LayoutResult;
-import com.teic.tiling.v2.utils.Geometry;
-import com.teic.tiling.v2.utils.Position;
-import com.teic.tiling.v2.utils.Size;
+import com.teic.tiling.layouts.LayoutResult;
+import com.teic.tiling.utils.Geometry;
+import com.teic.tiling.utils.Position;
+import com.teic.tiling.utils.Size;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
 import org.jspecify.annotations.NullMarked;
 

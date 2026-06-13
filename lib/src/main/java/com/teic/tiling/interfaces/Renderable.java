@@ -1,6 +1,6 @@
-package com.teic.tiling.v2.interfaces;
+package com.teic.tiling.interfaces;
 
-import com.teic.tiling.v2.utils.Geometry;
+import com.teic.tiling.utils.Geometry;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
 import org.jspecify.annotations.NullMarked;
 

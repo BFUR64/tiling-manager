@@ -1,6 +1,6 @@
-package com.teic.tiling.v2.text;
+package com.teic.tiling.text;
 
-import com.teic.tiling.v2.utils.Position;
+import com.teic.tiling.utils.Position;
 
 import java.util.function.Supplier;
 

@@ -1,7 +1,7 @@
-package com.teic.tiling.v2.interfaces;
+package com.teic.tiling.interfaces;
 
-import com.teic.tiling.v2.layouts.Layout;
-import com.teic.tiling.v2.utils.Node;
+import com.teic.tiling.layouts.Layout;
+import com.teic.tiling.utils.Node;
 import org.jspecify.annotations.NullMarked;
 
 import java.util.List;

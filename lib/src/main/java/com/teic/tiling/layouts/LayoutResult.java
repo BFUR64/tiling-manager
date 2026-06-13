@@ -1,7 +1,7 @@
-package com.teic.tiling.v2.layouts;
+package com.teic.tiling.layouts;
 
-import com.teic.tiling.v2.utils.Geometry;
-import com.teic.tiling.v2.utils.Node;
+import com.teic.tiling.utils.Geometry;
+import com.teic.tiling.utils.Node;
 import org.jspecify.annotations.NullMarked;
 
 import java.util.Map;

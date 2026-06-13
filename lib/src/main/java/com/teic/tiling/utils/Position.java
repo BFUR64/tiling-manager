@@ -1,4 +1,4 @@
-package com.teic.tiling.v2.utils;
+package com.teic.tiling.utils;
 
 import org.jspecify.annotations.NullMarked;
 

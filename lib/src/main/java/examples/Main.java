@@ -1,12 +1,11 @@
 package examples;
 
-import com.teic.tiling.Container;
-import com.teic.tiling.v2.ContainerNode;
-import com.teic.tiling.v2.Viewport;
-import com.teic.tiling.v2.layouts.ColumnLayout;
-import com.teic.tiling.v2.layouts.RowLayout;
-import com.teic.tiling.v2.text.TextNode;
-import com.teic.tiling.v2.utils.Node;
+import com.teic.tiling.ContainerNode;
+import com.teic.tiling.Viewport;
+import com.teic.tiling.layouts.ColumnLayout;
+import com.teic.tiling.layouts.RowLayout;
+import com.teic.tiling.text.TextNode;
+import com.teic.tiling.utils.Node;
 import io.github.bfur64.terminal.BufferedTerminal;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
 import org.jspecify.annotations.NullMarked;
@@ -58,8 +57,8 @@ public class Main {
 
         Node anothaOne = new ContainerNode(ColumnLayout.INSTANCE, List.of(
             firstTextBox,
-            secondTextBox
-//            rowBitch
+            secondTextBox,
+            rowBitch
         ));
 
         ContainerNode root = new ContainerNode(RowLayout.INSTANCE, List.of(

@@ -1,20 +1,20 @@
-package com.teic.tiling.v2.layouts;
+package com.teic.tiling.layouts;
 
-import com.teic.tiling.v2.interfaces.Container;
-import com.teic.tiling.v2.utils.Geometry;
-import com.teic.tiling.v2.utils.Node;
-import com.teic.tiling.v2.utils.Position;
-import com.teic.tiling.v2.utils.Size;
+import com.teic.tiling.interfaces.Container;
+import com.teic.tiling.utils.Geometry;
+import com.teic.tiling.utils.Node;
+import com.teic.tiling.utils.Position;
+import com.teic.tiling.utils.Size;
 import org.jspecify.annotations.NullMarked;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @NullMarked
-public final class RowLayout implements Layout {
-    public static final Layout INSTANCE = new RowLayout();
+public final class ColumnLayout implements Layout {
+    public static final Layout INSTANCE = new ColumnLayout();
 
-    private RowLayout() {}
+    private ColumnLayout() {}
 
     @Override
     public Size measure(Container container) {
@@ -24,8 +24,8 @@ public final class RowLayout implements Layout {
         for (Node child : container.getChildren()) {
             Size size = child.getDesiredSize();
 
-            x = Math.max(x, size.x());
-            y += size.y();
+            x += size.x();
+            y = Math.max(y, size.y());
         }
 
         return Size.of(x, y);
@@ -47,7 +47,7 @@ public final class RowLayout implements Layout {
 
             local.put(child, Geometry.of(finalPosition, size));
 
-            y += size.y();
+            x += size.x();
         }
 
         return local;

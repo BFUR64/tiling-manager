@@ -1,10 +1,10 @@
-package com.teic.tiling.v2.text;
+package com.teic.tiling.text;
 
-import com.teic.tiling.v2.interfaces.Renderable;
-import com.teic.tiling.v2.utils.Geometry;
-import com.teic.tiling.v2.utils.Node;
-import com.teic.tiling.v2.utils.Position;
-import com.teic.tiling.v2.utils.Size;
+import com.teic.tiling.interfaces.Renderable;
+import com.teic.tiling.utils.Geometry;
+import com.teic.tiling.utils.Node;
+import com.teic.tiling.utils.Position;
+import com.teic.tiling.utils.Size;
 import io.github.bfur64.terminal.interfaces.TerminalBackend;
 import org.jspecify.annotations.NullMarked;
 
